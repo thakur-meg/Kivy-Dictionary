@@ -1,0 +1,80 @@
+#:kivy 2.0.0
+<HomeScreen>:
+    GridLayout:
+        cols:1
+        GridLayout:
+            cols:1
+            padding: 15, 15
+            spacing: 20, 20
+
+            Label:
+                text: ""
+            Image:
+                source: '1.png'
+                size_hint_y: None
+                height: 200
+                allow_stretch: True
+            Label:
+                text: "Dictionary"
+                color: 0.047, 0.619, 0.658, 1
+                font_size: '45sp'
+             
+            RelativeLayout:
+                Button:
+                    text:"Learn!"
+                    on_press: root.dicscreen()
+                    size_hint: 0.4, 0.4
+                    background_color: 0.047, 0.619, 0.658, 1  
+                    pos_hint: {'center_x': 0.5, 'center_y': 0.9}  
+               
+            
+
+<DicScreen>:
+
+    GridLayout:
+        cols:1
+        padding: 30,30
+        spacing: 30,30
+        RelativeLayout:
+            ImageButton:
+            
+                on_press: root.log_out()
+                source: '3.png' if self.hovered else '2.png'
+                size_hint: 0.34,0.34
+                pos_hint: {'center_x':0.94,'center_y':0.81}
+        
+        Label:
+            text:"Enter a word"
+            color: 0.047, 0.619, 0.658, 1
+
+        TextInput:
+            hint_text: "Things to try: annihilate, delinquent and more..."    
+            id: word
+            size_hint: 0.3, 0.5
+        RelativeLayout:
+
+            Button:
+                text:"Search"
+                background_color: 0.047, 0.619, 0.658, 1
+                on_press: root.translate()
+                size_hint: 0.5, 0.6
+                pos_hint: {'center_x':0.5, 'center_y':0.9}
+
+        ScrollView:
+            Label:
+                id: translated
+                text:""
+                color: 0.047, 0.619, 0.658, 0
+                text_size: self.width,None
+                size_hint_y: None
+                height: self.texture_size[1]
+
+
+
+
+
+<RootWidget>:
+    HomeScreen:
+        name: "homescreen"
+    DicScreen:
+        name: "dicscreen"     
