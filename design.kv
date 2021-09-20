@@ -39,18 +39,20 @@
             ImageButton:
             
                 on_press: root.log_out()
-                source: '3.png' if self.hovered else '2.png'
+                source: '2.png' if self.hovered else '3.png'
                 size_hint: 0.34,0.34
                 pos_hint: {'center_x':0.94,'center_y':0.81}
         
         Label:
             text:"Enter a word"
             color: 0.047, 0.619, 0.658, 1
+            font_size: '45sp'
 
         TextInput:
-            hint_text: "Things to try: annihilate, delinquent and more..."    
+            hint_text: "Words to try: annihilate, delinquent and more..."    
             id: word
             size_hint: 0.3, 0.5
+            pos_hint: 0.5, 1
         RelativeLayout:
 
             Button:

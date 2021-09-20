@@ -13,6 +13,7 @@ from kivy.uix.behaviors import ButtonBehavior
 from kivy.core.window import Window
 from kivymd.uix.screen import Screen
 from kivymd.app import MDApp
+import difflib
 Window.clearcolor = (1, 1, 1, 1)
 
         
@@ -29,15 +30,14 @@ class DicScreen(Screen):
         self.manager.transition.direction = 'left'
         self.manager.current = "homescreen"
     def translate(self):
-     data = json.load(open('data.json'))   
-     self.ids.word.text = self.ids.word.text.lower() 
-     if self.ids.word.text in data:
-         
-        
-      self.ids.translated.text = str(data[self.ids.word.text])
-    
-     else:
-      self.ids.translated.text = "No such word found"
+        data = json.load(open('data.json'))   
+        self.ids.word.text = self.ids.word.text.lower() 
+        if self.ids.word.text in data:
+            self.ids.translated.text = str(data[self.ids.word.text])
+        elif get_close_matches(self.ids.word.text, data.keys(), cutoff=0.8) != []:
+            self.ids.translated.text = ("Word doesn't exist. Did you mean %s Enter Y if yes, or N if no? " % (get_close_matches(self.ids.word.text, data.keys())[0]))
+        else:
+            self.ids.translated.text = "The word doesn't exist. Please double check it."
 
 class ImageButton(ButtonBehavior, HoverBehavior,Image):
     pass
