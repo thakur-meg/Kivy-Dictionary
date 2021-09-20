@@ -40,7 +40,7 @@
             
                 on_press: root.log_out()
                 source: '3.png' if self.hovered else '2.png'
-                size_hint: 0.34,0.34
+                size_hint: 0.5,0.5
                 pos_hint: {'center_x':0.94,'center_y':0.81}
         
         Label:
@@ -59,7 +59,7 @@
                 text:"Search"
                 background_color: 0.047, 0.619, 0.658, 1
                 on_press: root.translate()
-                size_hint: 0.7, 0.7
+                size_hint: 0.5, 0.6
                 pos_hint: {'center_x':0.5, 'center_y':0.9}
 
         ScrollView:
