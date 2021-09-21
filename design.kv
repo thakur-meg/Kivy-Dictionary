@@ -5,11 +5,11 @@
         GridLayout:
             canvas.before:
                 Color:
-                    rgba: rgba('#0c9ea4ff')
+                    rgba: rgba('#0c9ea43f')
                 Triangle:
                     points: [0, self.size[1], self.size[0], self.size[1], self.size[0], self.size[1]-(.4*self.size[1])]
                 Color:
-                    rgba: rgba('#013e54ff')
+                    rgba: rgba('#013e543f')
                 Triangle:
                     points: [0, self.size[1], self.size[0], self.size[1], 0, self.size[1]-(.4*self.size[1])]
                 
@@ -43,7 +43,16 @@
 
 <DicScreen>:
 
-    GridLayout:
+    GridLayout: 
+        canvas.before:
+            Color:
+                rgba: rgba('#013e543f')
+            Triangle:
+                points: [0, self.size[1], self.size[0], self.size[1], self.size[0], self.size[1]-(.2*self.size[1])]
+            Color:
+                rgba: rgba('#0c9ea43f')
+            Triangle:
+                points: [0, self.size[1], self.size[0], self.size[1], 0, self.size[1]-(.2*self.size[1])]       
         cols:1
         padding: 30,30
         spacing: 30,30
@@ -54,7 +63,7 @@
                 source: '3.png' if self.hovered else '2.png'
                 size_hint: 0.5,0.5
                 pos_hint: {'center_x':0.94,'center_y':0.81}
-        
+
         Label:
             text:"ENTER A WORD"
             font_name: 'dejavusans'
