@@ -12,7 +12,6 @@ from kivymd.uix.button import MDRectangleFlatButton
 from kivy.uix.behaviors import ButtonBehavior
 from kivy.core.window import Window
 from kivymd.uix.screen import Screen
-import keyword
 import difflib
 Window.clearcolor = (1, 1, 1, 1)
 
@@ -34,8 +33,8 @@ class DicScreen(Screen):
         self.ids.word.text = self.ids.word.text.lower() 
         if self.ids.word.text in data:
             self.ids.translated.text = str(data[self.ids.word.text])
-        elif get_close_matches(self.ids.word.text, data.keys(), cutoff=0.8) != []:
-            self.ids.translated.text = ("Word doesn't exist. Did you mean %s Enter Y if yes, or N if no? " % (get_close_matches(self.ids.word.text, data.keys())[0]))
+        elif difflib.get_close_matches(self.ids.word.text, data.keys(), cutoff=0.8) != []:
+            self.ids.translated.text = ("Word doesn't exist. Did you mean %s? " % (difflib.get_close_matches(self.ids.word.text, data.keys())[0]))
         else:
             self.ids.translated.text = "The word doesn't exist. Please double check it."
 
