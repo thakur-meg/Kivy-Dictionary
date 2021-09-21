@@ -32,7 +32,7 @@ class DicScreen(Screen):
         data = json.load(open('data.json'))   
         self.ids.word.text = self.ids.word.text.lower() 
         if self.ids.word.text in data:
-            self.ids.translated.text = '\n'.join(data[self.ids.word.text])
+            self.ids.translated.text = '\n'.join(['{}: {}'.format(i, val) for i, val in (enumerate(data[self.ids.word.text], start=1))])
         elif self.ids.word.text == "":
             self.ids.translated.text = "Please enter a word."
         elif difflib.get_close_matches(self.ids.word.text, data.keys(), cutoff=0.8) != []:
