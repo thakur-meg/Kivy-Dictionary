@@ -15,16 +15,15 @@
                 height: 200
                 allow_stretch: True
             Label:
-                text: "Dictionary"
+                text: "DICTIONARY"
                 color: 0.047, 0.619, 0.658, 1
                 font_size: '45sp'
              
             RelativeLayout:
-                Button:
+                SmoothButton:
                     text:"Learn!"
                     on_press: root.dicscreen()
-                    size_hint: 0.4, 0.4
-                    background_color: 0.047, 0.619, 0.658, 1  
+                    size_hint: 0.4, 0.4  
                     pos_hint: {'center_x': 0.5, 'center_y': 0.9}  
                
             
@@ -44,7 +43,7 @@
                 pos_hint: {'center_x':0.94,'center_y':0.81}
         
         Label:
-            text:"Enter a word"
+            text:"ENTER A WORD"
             color: 0.047, 0.619, 0.658, 1
             font_size: '45sp'
 
@@ -55,9 +54,9 @@
             pos_hint: 0.5, 1
         RelativeLayout:
 
-            Button:
+            SmoothButton:
                 text:"Search"
-                background_color: 0.047, 0.619, 0.658, 1
+                back_color: 0.047, 0.619, 0.658, 1
                 on_press: root.translate()
                 size_hint: 0.5, 0.6
                 pos_hint: {'center_x':0.5, 'center_y':0.9}
@@ -79,4 +78,18 @@
     HomeScreen:
         name: "homescreen"
     DicScreen:
-        name: "dicscreen"     
+        name: "dicscreen"  
+
+<SmoothButton@Button>:
+    background_color: (0, 0, 0, 0)
+    background_normal: ''
+    back_color: (0.047, 0.619, 0.658, 1)
+    border_radius: 22
+    color: self.back_color
+    bold: True
+    canvas.before:
+        Color:
+            rgba: self.back_color
+        Line:
+            rounded_rectangle: (self.pos[0], self.pos[1], self.size[0], self.size[1], self.border_radius)
+            width: 1.2
