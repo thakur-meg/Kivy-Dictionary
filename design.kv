@@ -25,6 +25,7 @@
                     on_press: root.dicscreen()
                     size_hint: 0.4, 0.4  
                     pos_hint: {'center_x': 0.5, 'center_y': 0.9}  
+                    border_radius: [22, 2, 22, 2]
                
             
 
@@ -46,15 +47,16 @@
             text:"ENTER A WORD"
             color: 0.047, 0.619, 0.658, 1
             font_size: '45sp'
+            pos_hint: {'center_x':0.5,'center_y':0.9}
 
-        TextInput:
+        FlatInput:
             hint_text: "Words to try: annihilate, delinquent and more..."    
             id: word
             size_hint: 0.3, 0.5
             pos_hint: 0.5, 1
         RelativeLayout:
 
-            SmoothButton:
+            StrokeButton:
                 text:"Search"
                 back_color: 0.047, 0.619, 0.658, 1
                 on_press: root.translate()
@@ -84,7 +86,20 @@
     background_color: (0, 0, 0, 0)
     background_normal: ''
     back_color: (0.047, 0.619, 0.658, 1)
-    border_radius: 22
+    border_radius: [18]
+    canvas.before:
+        Color:
+            rgba: self.back_color
+        RoundedRectangle:
+            size: self.size
+            pos: self.pos
+            radius: self.border_radius
+
+<StrokeButton@Button>:
+    background_color: (0, 0, 0, 0)
+    background_normal: ''
+    back_color: (0.047, 0.619, 0.658, 1)
+    border_radius: 25
     color: self.back_color
     bold: True
     canvas.before:
@@ -93,3 +108,14 @@
         Line:
             rounded_rectangle: (self.pos[0], self.pos[1], self.size[0], self.size[1], self.border_radius)
             width: 1.2
+
+<FlatInput@TextInput>:
+    background_active: ''
+    background_normal: ''
+    background_color: [1,1,1,0]
+    canvas.before:
+        Color:
+            rgba: rgba('#0c9ea4ff')
+        Rectangle:
+            pos: self.pos
+            size: [self.size[0], 1]

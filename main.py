@@ -33,6 +33,8 @@ class DicScreen(Screen):
         self.ids.word.text = self.ids.word.text.lower() 
         if self.ids.word.text in data:
             self.ids.translated.text = str(data[self.ids.word.text])
+        elif self.ids.word.text == "":
+            self.ids.translated.text = "Please enter a word."
         elif difflib.get_close_matches(self.ids.word.text, data.keys(), cutoff=0.8) != []:
             self.ids.translated.text = ("Word doesn't exist. Did you mean %s? " % (difflib.get_close_matches(self.ids.word.text, data.keys())[0]))
         else:
