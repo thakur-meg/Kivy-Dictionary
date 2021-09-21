@@ -28,10 +28,12 @@
                 text: "DICTIONARY"
                 color: 0.047, 0.619, 0.658, 1
                 font_size: '45sp'
+                font_name: 'dejavusans'
              
             RelativeLayout:
                 SmoothButton:
                     text:"Learn!"
+                    font_name: 'dejavusans'
                     on_press: root.dicscreen()
                     size_hint: 0.4, 0.4  
                     pos_hint: {'center_x': 0.5, 'center_y': 0.9}  
@@ -55,6 +57,7 @@
         
         Label:
             text:"ENTER A WORD"
+            font_name: 'dejavusans'
             color: 0.047, 0.619, 0.658, 1
             font_size: '45sp'
             pos_hint: {'center_x':0.5,'center_y':0.9}
@@ -68,10 +71,14 @@
 
             StrokeButton:
                 text:"Search"
+                font_name: 'dejavusans'
                 back_color: 0.047, 0.619, 0.658, 1
                 on_press: root.translate()
+                on_press: self.back_color = 0, 0.48, 0.63, 1
+                on_release: self.back_color = 0.047, 0.619, 0.658, 1
                 size_hint: 0.5, 0.6
                 pos_hint: {'center_x':0.5, 'center_y':0.9}
+
 
         ScrollView:
             Label:
