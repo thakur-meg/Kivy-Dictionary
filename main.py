@@ -12,7 +12,7 @@ from kivymd.uix.button import MDRectangleFlatButton
 from kivy.uix.behaviors import ButtonBehavior
 from kivy.core.window import Window
 from kivymd.uix.screen import Screen
-from kivymd.app import MDApp
+import keyword
 import difflib
 Window.clearcolor = (1, 1, 1, 1)
 
