@@ -8,7 +8,6 @@ from datetime import datetime
 from pathlib import Path
 import random
 from kivy.uix.image import Image
-from kivymd.uix.button import MDRectangleFlatButton
 from kivy.uix.behaviors import ButtonBehavior
 from kivy.core.window import Window
 from kivymd.uix.screen import Screen
