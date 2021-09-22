@@ -49,6 +49,7 @@ class RootWidget(ScreenManager):
 
 class MainApp(App):
     def build(self):
+        self.icon = "LOGO(2).png"
         return RootWidget()
 
 if __name__ == "__main__":
