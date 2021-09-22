@@ -4,7 +4,6 @@ from kivy.uix.screenmanager import ScreenManager,Screen
 import json, glob
 from hoverable import HoverBehavior
 from kivy.animation import Animation
-from datetime import datetime
 from pathlib import Path
 import random
 from kivy.uix.image import Image
