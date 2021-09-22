@@ -34,7 +34,10 @@
                 SmoothButton:
                     text:"Learn!"
                     font_name: 'dejavusans'
+                    font_size: '30sp'
                     on_press: root.dicscreen()
+                    on_press: self.back_color = 0, 0.48, 0.63, 1
+                    on_release: self.back_color = 0.047, 0.619, 0.658, 1
                     size_hint: 0.4, 0.4  
                     pos_hint: {'center_x': 0.5, 'center_y': 0.9}  
                     border_radius: [22, 2, 22, 2]
